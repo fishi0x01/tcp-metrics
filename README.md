@@ -8,20 +8,19 @@ Two methods to measure Goodput:
 
 For detailed information concerning the techniques applied please check out http://fishi.devtail.com/weblog/8/ .
 
-Tool Help Text
+Usage
 --------------
+<pre>
 Usage: tcp-metrics [OPTION...] DOMAIN PATH
-tcp-metrics -- A tool to measure the round-trip time (rtt) and bandwidth (bw)
-of a TCP connection to a specified resource. Two different methods to measure
-the bandwidth are available.
-Example:	tcp-metrics yourdomain.com /my/resource
 
-  -a, --all                  Measure everything - option1 + option2 + rtt.
-  -b, --bandwidth-method-A   Measure the bandwidth with option 1, meaning the
+Example: tcp-metrics yourdomain.com /your/resource
+
+-a, --all                  Measure everything - option1 + option2 + rtt.
+-b, --bandwidth-method-A   Measure the bandwidth with option 1, meaning the
                              first socket.read() operations are skipped in
                              order to avoid initial bursts and TCP slow-start
                              to falsify the result.
-  -c, --bandwidth-method-B   Measure the bandwidth with option 2, meaning we
+-c, --bandwidth-method-B   Measure the bandwidth with option 2, meaning we
                              measure beginning from the first socket.read()
                              operation.
   -k, --skips=<Skips>        Number of socket.read() <Skips> to avoid bursting
@@ -60,3 +59,4 @@ Mandatory or optional arguments to long options are also mandatory or optional
 for any corresponding short options.
 
 Report bugs to <fischer@devtail.com>.
+</pre>
