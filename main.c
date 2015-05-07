@@ -26,7 +26,7 @@ static struct argp_option options[] = {
 	{ "port", 'p', "<Port>", 0, "The <Port> the resource to measure is available at - default is 80."},
     { "size", 's', "<Size>", 0, "<Size> of the receiver buffer - if not specified, by default a 2MB receiver buffer is used. Note that on each socket.read() the buffer is written from the start (it is just a dummy buffer...). Please note, that if this buffer is to small, the socket.read() operation does not have enough memory to store data to - thus a huge bottleneck in the application layer would occur."},
     { "skips", 'k', "<Skips>", 0, "Number of socket.read() <Skips> to avoid bursting and TCP slow-start to falsify the result - by default this value is 10. Note that a value of 0 here would be the same as using measurement option 2 (-c)."},
-	{ "rounds", 'n', "<Rounds>", 0, "Number of repeated measurement <Rounds>. In order to get a fair estimate of the rtt, several rounds should be used. By default this value is 2"},
+	{ "rounds", 'n', "<Rounds>", 0, "Number of repeated measurement <Rounds>. In order to get a fair estimate of the rtt, several rounds should be used. By default this value is 1"},
 	{ "timeout", 't', "<Timeout>", 0, "The socket <Timeout> in seconds - by default 2s."},
 	{ "multi", 'm', 0, 0, "If set, for each round a different TCP socket is used. That way you might get a better overall estimate about an expected path between the client and the resource. Please note, that you need at least two measurement rounds for this option, since otherwise you will only use one TCP socket anyways..."},
 	{ "rtt", 'r', 0, 0, "Measure the rtt."},

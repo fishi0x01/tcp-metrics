@@ -2,8 +2,11 @@
 A tool to measure the round-trip time and bandwidth of a TCP connection with different methods.
 Bandwidth (or more precisely Goodput) is measured with the harmonic mean. 
 rtt is measured via weighed moving average. 
-Two methods to measure Goodput:
+
+Two methods implemented to measure Goodput:
+
 1.: by using the first socket.read() timestamp as the start time.
+
 2.: by using a later socket.read() timestamp as the start time (to avoid bursts and slow-start falsifying the estimate).
 
 For detailed information concerning the techniques applied please check out http://fishi.devtail.com/weblog/8/ .
@@ -37,7 +40,7 @@ Example: tcp-metrics yourdomain.com /your/resource
                              anyways...
   -n, --rounds=Rounds        Number of repeated measurement Rounds. In order
                              to get a fair estimate of the rtt, several rounds
-                             should be used. By default this value is 2
+                             should be used. By default this value is 1.
   -p, --port=Port            The Port the resource to measure is available at
                              - default is 80.
   -r, --rtt                  Measure the rtt.
