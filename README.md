@@ -3,13 +3,17 @@ A tool to measure the round-trip time and bandwidth of a TCP connection with dif
 Bandwidth (or more precisely Goodput) is measured with the harmonic mean. 
 rtt is measured via weighed moving average. 
 
-Two methods implemented to measure Goodput:
+Currently tcp-metrics only supports resources that are available via HTTP/1.1. The reason for this 
+is that most static resources are available via HTTP and it is easy to deploy a static testing resource 
+on a HTTP server. 
 
-1.: by using the first socket.read() timestamp as the start time.
+Two methods are available to measure the Goodput:
 
-2.: by using a later socket.read() timestamp as the start time (to avoid bursts and slow-start falsifying the estimate).
+1.: by using the first `socket.read()` timestamp as the start time.
 
-For detailed information concerning the techniques applied please check out http://fishi.devtail.com/weblog/8/ .
+2.: by using a later subsequent `socket.read()` timestamp as the start time (to avoid bursts and slow-start falsifying the estimate).
+
+For detailed information concerning the techniques applied please check out http://fishi.devtail.com/weblog/8/
 
 Usage
 --------------
