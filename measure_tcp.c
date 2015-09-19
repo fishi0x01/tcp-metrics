@@ -180,6 +180,10 @@ void measure_tcp_metrics(tcp_measurement *msrmnt)
 			sock = create_tcp_connection(msrmnt);
 		}
 
+		// refresh byte count for this round
+		msrmnt->total_bytes[0] = 0;
+		msrmnt->total_bytes[1] = 0;
+
 		// prepare objects for blocking IO
 		fd_set set;
 		struct timeval timeout;
